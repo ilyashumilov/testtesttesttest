@@ -11,9 +11,8 @@ services:
       - POSTGRES_PASSWORD=postgres
     ports:
       - 5432
-    restart: on-failure
-    healthcheck:
-        test: [ "CMD-SHELL", "pg_isready -d $${POSTGRES_NAME} -U $${POSTGRES_USER}" ]
+    restart: always
+
   api:
     build: .
     command: >
@@ -28,5 +27,4 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
     depends_on:
-      db:
-        condition: service_healthy
+      - db

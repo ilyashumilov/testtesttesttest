@@ -9,10 +9,10 @@ in the payload.
 
 ### Create new User instance `crate_user/` 
 
-Method: `POST`
+Method: `GET`
 
 ```
-curl -XPOST
+curl -XGET
 -H "Content-Type: application/json"
 -H "Bearer <your_token>"
 -d     "{'admin':True}"
